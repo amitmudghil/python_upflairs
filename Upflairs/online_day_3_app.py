@@ -6,7 +6,7 @@ answer1 = [
     'I am good',
     'awesome'
 ]
-que2 = r'what can you do'
+que2 = r'what(.*)do(.*)'
 answer2 = [
     'I can reply to your queries',
     'I am here to answer your questions',
