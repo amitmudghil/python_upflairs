@@ -234,7 +234,7 @@ def list_lambda_functions(output_text):
     functions_text = "\n".join(functions_info)
     output_text.insert(tk.END, functions_text + "\n\n")
 
-def exit_app():
+def exit_app(root):
     if messagebox.askokcancel("Exit", "Do you really want to exit?"):
         root.destroy()
 
@@ -259,6 +259,7 @@ def main():
     create_iam_button = tk.Button(action_frame, text="Create IAM User", command=create_iam_user)
     create_lambda_button = tk.Button(action_frame, text="Create Lambda Function", command=create_lambda_function)
     list_lambda_button = tk.Button(action_frame, text="List Lambda Functions", command=list_lambda_functions)
+    exit_button = tk.Button(action_frame, text="Exit", command=exit_app)
 
     # Create a frame for output text
     output_frame = tk.Frame(root)
@@ -278,7 +279,7 @@ def main():
     create_iam_button = tk.Button(action_frame, text="Create IAM User", command=partial(create_iam_user, output_text))
     create_lambda_button = tk.Button(action_frame, text="Create Lambda Function", command=partial(create_lambda_function, output_text))
     list_lambda_button = tk.Button(action_frame, text="List Lambda Functions", command=partial(list_lambda_functions, output_text))
-
+    exit_button = tk.Button(action_frame, text="Exit", command=partial(exit_app, root))
 
 
     # Add buttons to the frame
@@ -291,6 +292,7 @@ def main():
     create_iam_button.pack(fill=tk.X, pady=5)
     create_lambda_button.pack(fill=tk.X, pady=5)
     list_lambda_button.pack(fill=tk.X, pady=5)
+    exit_button.pack(fill=tk.X, pady=5)
 
     # Create labels, radio buttons, text boxes, and buttons for the Chatbot GUI
     command_type_label = tk.Label(root, text="Select input type:")
